@@ -32,7 +32,7 @@ public class ClientAdmRestServiceImpl implements ClientAdmRestService {
     private static final String SERVICO_USUARIO_URL = "/usuarios";
     private static final String SERVICO_FUNCIONARIO_URL = "/funcionarios";
 
-    @Value("${adm.api.client-registration-id}")
+    @Value("${clientRegistrationId}")
     private String clientRegistrationId;
 
     @Value("${adm.api.host}")
@@ -103,6 +103,7 @@ public class ClientAdmRestServiceImpl implements ClientAdmRestService {
                     .get()
                     .uri(uriComponents.toUri())
                     .attributes(clientRegistrationId(this.clientRegistrationId))
+                    .header("Content-Type", APPLICATION_JSON_VALUE)
                     .retrieve()
                     .toEntity(typeReference);
             return Optional.ofNullable(response.getBody()).orElse(List.of());
