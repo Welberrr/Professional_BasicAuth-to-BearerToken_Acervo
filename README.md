@@ -1,6 +1,6 @@
 *Backup de código - Não funcional de forma idependente*
 
-**
+***
 
 * Código de implementação e configuração da Autenticação por Bearer Token
 
